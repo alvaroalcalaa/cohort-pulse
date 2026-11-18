@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cohort Pulse · Retention analytics</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <nav><a class="brand" href="#">COHORT<span>PULSE</span></a><span class="badge">LOCAL-FIRST BI</span></nav>
+    <header>
+      <p class="eyebrow">Retention intelligence</p>
+      <h1>See when users <em>come back.</em></h1>
+      <p class="lede">Drop in an event CSV and turn first activity into a weekly cohort retention view — entirely in your browser.</p>
+    </header>
+    <section class="controls" aria-label="Data controls">
+      <label class="upload">Import CSV <input id="fileInput" type="file" accept=".csv,text/csv" /></label>
+      <button id="demoButton" class="secondary">Load demo</button>
+      <button id="exportButton" class="ghost" disabled>Export matrix</button>
+      <span id="status" role="status">Waiting for data</span>
+    </section>
+    <section id="empty" class="empty"><div>◌</div><h2>Your retention story starts here.</h2><p>Use the included demo or import a CSV with <code>user_id</code> and <code>event_date</code>.</p></section>
+    <section id="results" hidden>
+      <div class="metrics">
+        <article><span>Tracked users</span><strong id="usersMetric">—</strong></article>
+        <article><span>Weekly cohorts</span><strong id="cohortsMetric">—</strong></article>
+        <article><span>Avg. week 1 retention</span><strong id="retentionMetric">—</strong></article>
+      </div>
+      <div class="panel">
+        <div class="panel-title"><div><p class="eyebrow">Cohort matrix</p><h2>Weekly retention</h2></div><p id="dateRange"></p></div>
+        <div class="table-wrap"><table id="cohortTable"></table></div>
+      </div>
+      <p class="hint">Each row is a group of users whose first event happened in that week. Cells show the share returning in later weeks.</p>
+    </section>
+  </main>
+  <footer>Built for product curiosity · CSV stays in your browser</footer>
+  <script src="app.js"></script>
+</body>
+</html>
